@@ -1,7 +1,8 @@
 <template lang='pug'>
-  .hello
-    h1 {{ msg }}
-    h2 The drawing game.
+.text-center
+  img(src='static/assets/logo.png')
+  h1 {{ msg }}
+  h2 The drawing game.
 </template>
 
 <script>
