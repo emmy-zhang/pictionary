@@ -2,19 +2,52 @@
 
 > A drawing game.
 
+## Project Structure
+
+``` txt
+├── README.md                  <- Top-level README for developers.
+├── build                      <- Webpack configuration files.
+│   ├── ...
+├── config                     <- Project configuration files.
+│   ├── ...
+├── index.html                 <- HTML template for app.
+├── package.json               <- Project scripts and dependencies.
+├── src
+│   ├── App.vue                <- Main app file.
+│   ├── components             <- UI components.
+│   │   ├── ...
+│   │   └── includes           <- UI fragments.
+│   │       └── ...
+│   ├── main.js                <- App entry file.
+│   ├── router                 <- Vue-router configuration.
+│   │   └── index.js
+│   └── store                  <- Vuex configuration.
+│       ├── index.js           <- Main Vuex file.
+│       ├── modules            <- Vuex modules.
+│       │   └── ...
+│       └── mutation-types.js  <- Vuex mutation types.
+├── static                     <- Static assets.
+│   ├── assets
+│   │   └── ...
+│   └── styles                 <- Style files.
+│       ├── _variables.scss    <- SCSS variables.
+│       └── main.scss          <- Main style file.
+└── yarn.lock
+```
+
 ## Build Setup
 
 ``` bash
-# install dependencies
+# Install dependencies
 yarn
 
-# serve with hot reload at localhost:8080
+# Serve with hot reload at localhost:8080
 yarn dev
 
-# build for production with minification
+# Build for production with minification
 yarn build
 
-# build for production and view the bundle analyzer report
+# Build for production and view the bundle analyzer report
 yarn build --report
 ```
 
