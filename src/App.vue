@@ -1,7 +1,7 @@
 <template lang='pug'>
-  #app
-    app-nav
-    router-view
+#app
+  app-nav
+  router-view
 </template>
 
 <script>
