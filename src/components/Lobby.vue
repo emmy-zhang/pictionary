@@ -3,28 +3,28 @@
   img(src='static/assets/logo.png')
   h1 Welcome to Pictionary!
 
-  h2 Public Rooms
+  h2 Public games
   // Boostrap Vue component
-  b-list-group#room-list.col-6.mx-auto
-    b-list-group-item.room.justify-content-center(v-for='(room, index) in rooms')
+  b-list-group#game-list.col-6.mx-auto
+    b-list-group-item.game.justify-content-center(v-for='(game, index) in games')
       p {{ index }}
-      p.w-100 {{ room.type }} room: {{ room.players }} players
+      p.w-100 {{ game.type }} game: {{ game.players }} players
       button.btn-primary Join
   br
 
   // Two-way data binding
-  div#create-game
+  div.container.col-sm-3#create-game
     h2 Create a game
-    input(v-model='msg' placeholder='Two way binding test.')
+    b-form-input(v-model='msg', type='text', placeholder='Enter game name', :formatter='format')
     p The message is: {{ msg }}
 
     // Radio buttons
-    h3 Player model
+    h3 Player mode
     input(type='radio', id='two-players', value='Two players', v-model='picked')
     label(for='two-players') Two players
     br
     input(type='radio', id='multiplayer', value='Multiplayer (3+)', v-model='picked')
-    label(for='multiplayer') Multiplayer
+    label(for='multiplayer') Multiplayer (3+)
     br
     span Picked:  {{ picked }}
 
@@ -48,8 +48,8 @@ export default {
   data () {
     return {
       msg: 'zucchini bread',
-      // Some sample rooms
-      rooms: [
+      // Some sample games
+      games: [
         {
           type: 'public',
           players: 4
