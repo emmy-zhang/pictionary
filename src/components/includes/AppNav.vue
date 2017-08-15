@@ -6,7 +6,8 @@ b-navbar(toggleable, type='inverse', variant='primary', fixed)
       span Pictionary
     b-collapse#nav_collapse_example(is-nav)
       b-nav.ml-auto(is-nav-bar)
-        b-nav-item(to='/game') Play
+        b-nav-item(to='/lobby') Play
+        b-nav-item(to='/game') Game
 </template>
 
 <script>
