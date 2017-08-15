@@ -5386,6 +5386,12 @@ vue-axios@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/vue-axios/-/vue-axios-2.0.2.tgz#0fe5a69f1edb09a1cd6c4a7f88c74d2fb7fe1778"
 
+vue-form@^4.3.4:
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/vue-form/-/vue-form-4.3.4.tgz#6f05391de2bc8ea6c1a2e69eba7a2b185543cdcd"
+  dependencies:
+    extend "^3.0.0"
+
 vue-hot-reload-api@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"

@@ -5,6 +5,7 @@ import { sync } from 'vuex-router-sync'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueMeta from 'vue-meta'
+import VueForm from 'vue-form'
 import BootstrapVue from 'bootstrap-vue'
 import VueSocketIO from 'vue-socket.io'
 
@@ -15,6 +16,7 @@ import sockets from './sockets'
 
 Vue.use(VueAxios, axios)
 Vue.use(VueMeta)
+Vue.use(VueForm)
 Vue.use(BootstrapVue)
 Vue.use(VueSocketIO, process.env.SOCKET_URL, store)
 
