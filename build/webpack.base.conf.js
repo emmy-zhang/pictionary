@@ -2,6 +2,7 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+var dotenvWebpack = require('dotenv-webpack')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -73,5 +74,10 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new dotenvWebpack({
+      path: '.env.example'
+    })
+  ]
 }
