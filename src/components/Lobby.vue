@@ -12,14 +12,16 @@
       button.btn-primary Join
   br
 
-  // Two-way data binding
-  div.container.col-sm-3#create-game
-    h2 Create a game
+  b-btn.my-2(v-b-modal.create-game-modal='') Create new game
+  // Modal Component
+  b-modal.text-left#create-game-modal(title='Create new game', @ok='submit', @shown='clearName')
+    h4 Name of new game
+    // enter name of new game
     b-form-input(v-model='msg', type='text', placeholder='Enter game name')
     p The message is: {{ msg }}
 
-    // Radio buttons
     h4 Game mode
+    // select game mode
     input(type='radio', id='two-player', value='cooperative', v-model='gameMode')
     label(for='two-players') Two player
     br
@@ -35,10 +37,7 @@
     h4 Make team public?
     input(type='checkbox', id='public', v-model='isPublic')
     label(for='public') Public
-    
-    br
 
-    button.button(@click='createGame') Submit
 </template>
 
 <script>
