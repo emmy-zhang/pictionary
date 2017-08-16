@@ -14,12 +14,12 @@
 
   b-btn.my-2(v-b-modal.create-game-modal='') Create new game
   // Modal Component
-  b-modal.text-left#create-game-modal(title='Create new game', @ok='submit', @shown='clearName')
+  b-modal.text-left#create-game-modal(title='Create new game', @ok='createGame', ok-title='Create game')
     h4 Name of new game
     // enter name of new game
     b-form-input(v-model='msg', type='text', placeholder='Enter game name')
     p The message is: {{ msg }}
-
+    
     h4 Game mode
     // select game mode
     input(type='radio', id='two-player', value='cooperative', v-model='gameMode')
@@ -68,28 +68,23 @@ export default {
   },
   methods: {
     createGame() {
-      console.log(`gameMode: ${this.gameMode}`)
+      /* console.log(`gameMode: ${this.gameMode}`)
       console.log(`numberOfRounds: ${this.numberOfRounds}`)
-      console.log(`isPublic: ${this.isPublic}`)
+      console.log(`isPublic: ${this.isPublic}`) */
+      this.$store.dispatch('createGame', {
+        game: {
+          gameMode: this.gameMode,
+          numberOfRounds: this.numberOfRounds,
+          isPublic: this.isPublic
+        },
+        users: [1, 2, 3]
+      })
     }
   }
 }
 </script>
 
 <style lang='scss' scoped>
-h1, h2 {
-  font-weight: normal;
-}
 
-ul {
-  padding: 0;
-}
 
-li {
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>

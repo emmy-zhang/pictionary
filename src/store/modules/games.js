@@ -20,7 +20,7 @@ const actions = {
       })
   },
   createGame({ commit, rootState }, { game, users }) {
-    return Vue.axios.post('/game/add', { game, users })
+    return Vue.axios.post('/games/add', { game, users })
       .then((res) => {
         commit(types.ADD_GAME, res.data)
         return res.data
