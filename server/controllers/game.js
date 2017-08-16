@@ -14,8 +14,8 @@ exports.getGames = (req, res) => {
  * Create a game (with users).
  */
 exports.postGameCreate = (req, res) => {
-  const game = JSON.parse(req.body.game)
-  const users = JSON.parse(req.body.users)
+  const game = req.body.game
+  const users = req.body.users
 
   // Append game to list of games
   game.users = users
@@ -28,7 +28,7 @@ exports.postGameCreate = (req, res) => {
  * Remove a game.
  */
 exports.postGameRemove = (req, res) => {
-  const game = JSON.parse(req.body.game)
+  const game = req.body.game
 
   // Locate game index by game id
   const index = model.games.findIndex(g => g.id === game.id)
@@ -46,8 +46,8 @@ exports.postGameRemove = (req, res) => {
  * Add users to a game.
  */
 exports.postGameUsersAdd = (req, res) => {
-  const game = JSON.parse(req.body.game)
-  const users = JSON.parse(req.body.users)
+  const game = req.body.game
+  const users = req.body.users
 
   // Locate game index by game id
   const index = model.games.findIndex(g => g.id === game.id)
@@ -65,8 +65,8 @@ exports.postGameUsersAdd = (req, res) => {
  * Remove user from a game.
  */
 exports.postGameUsersRemove = (req, res) => {
-  const game = JSON.parse(req.body.game)
-  const user = JSON.parse(req.body.user)
+  const game = req.body.game
+  const user = req.body.user
 
   // Locate game index by game id
   const gameIndex = model.games.findIndex(g => g.id === game.id)
