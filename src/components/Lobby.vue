@@ -6,7 +6,7 @@
   h2 Public games
   // Boostrap Vue component
   b-list-group#game-list.col-6.mx-auto
-    b-list-group-item.game.justify-content-center(v-for='(game, index) in games')
+    b-list-group-item.game.justify-content-center(v-for='(game, index) in games', key='index')
       p {{ index }}
       p.w-100 {{ game.type }} game: {{ game.players }} players
       button.btn-primary Join
@@ -15,37 +15,36 @@
   // Two-way data binding
   div.container.col-sm-3#create-game
     h2 Create a game
-    b-form-input(v-model='msg', type='text', placeholder='Enter game name', :formatter='format')
+    b-form-input(v-model='msg', type='text', placeholder='Enter game name')
     p The message is: {{ msg }}
 
     // Radio buttons
-    h3 Player mode
-    input(type='radio', id='two-players', value='Two players', v-model='picked')
-    label(for='two-players') Two players
+    h4 Game mode
+    input(type='radio', id='two-player', value='cooperative', v-model='gameMode')
+    label(for='two-players') Two player
     br
-    input(type='radio', id='multiplayer', value='Multiplayer (3+)', v-model='picked')
+    input(type='radio', id='multiplayer', value='competitive', v-model='gameMode')
     label(for='multiplayer') Multiplayer (3+)
-    br
-    span Picked:  {{ picked }}
 
-    h3 Number of rounds
-    select(v-model='selected', text='Select # of rounds')
-      option(disabled, value='') Please select one
-      option 5
+    h4 Number of rounds
+    select(v-model='numberOfRounds', text='Select # of rounds')
+      option(disabled) Please select one
+      option(selected) 5
       option 10
-    span Selected: {{ selected }}
 
-    h3 Make team public?
+    h4 Make team public?
     input(type='checkbox', id='public', v-model='isPublic')
     label(for='public') Public
+    
     br
-    span Public: {{ isPublic }}
+
+    button.button(@click='createGame') Submit
 </template>
 
 <script>
 export default {
   name: 'home',
-  data () {
+  data() {
     return {
       msg: 'zucchini bread',
       // Some sample games
@@ -63,9 +62,16 @@ export default {
           players: 5
         }
       ],
-      picked: false,
-      selected: '',
+      gameMode: false,
+      numberOfRounds: 5,
       isPublic: false
+    }
+  },
+  methods: {
+    createGame() {
+      console.log(`gameMode: ${this.gameMode}`)
+      console.log(`numberOfRounds: ${this.numberOfRounds}`)
+      console.log(`isPublic: ${this.isPublic}`)
     }
   }
 }
@@ -77,7 +83,6 @@ h1, h2 {
 }
 
 ul {
-  // list-style-type: none;
   padding: 0;
 }
 

@@ -1,8 +1,8 @@
 const sockets = {
-  connect () {
+  connect() {
     console.log('Socket connected with ' + process.env.SOCKET_URL)
   },
-  new_message (data) {
+  new_message(data) {
     console.log(`New message from ${data.sender_id}: ${data.body}`)
     const message = {
       chat_id: data.chat_id,
@@ -15,7 +15,7 @@ const sockets = {
     }
     this.$store.dispatch('addMessage', { message })
   },
-  new_chat (data) {
+  new_chat(data) {
     console.log(`New chat created by user id ${data.creator_id}: '${data.name}'`)
     this.$store.dispatch('addChat', { chat: data })
   }

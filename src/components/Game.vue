@@ -2,7 +2,7 @@
 #root.container-fluid.d-flex.p-0
   .col-md-3.d-flex.grid-border.flex-column
     b-list-group#player-list
-      b-list-group-item.player.justify-content-center(v-for='player in players')
+      b-list-group-item.player.justify-content-center(v-for='(player, index) in players', key='index')
         p.w-100 {{ player.name }}: {{ player.score }}
     button.btn-primary(@click='addPlayer("Bobbi")') Add player
   .col-md-6.d-flex.grid-border
@@ -15,14 +15,14 @@
 export default {
   name: 'home',
   methods: {
-    addPlayer (name) {
+    addPlayer(name) {
       this.players.push({
         name,
         score: 0
       })
     }
   },
-  data () {
+  data() {
     return {
       msg: 'zucchini bread',
       // Some sample players

@@ -31,7 +31,6 @@
       li If guesser guesses correctly with 45 secs left, artist gets 45
       li If another guesser guesses correctly with 20 secs left, artist gets another 20 = 65
       li Guesser gets points based on seconds left on the clock plus a constant (10)
-
       
   b-btn.my-2(to='/lobby') Start game
 </template>
@@ -39,7 +38,7 @@
 <script>
 export default {
   name: 'home',
-  data () {
+  data() {
     return {
       msg: 'Welcome to Pictionary!'
     }

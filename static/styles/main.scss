@@ -17,3 +17,27 @@ html, body, #app {
 html, body {
   overflow: auto;
 }
+
+// Typography
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: $font-family-base;
+}
+
+.v-select {
+  font-family: $font-family-base;
+}
+
+.word-wrap {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-x: hidden;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  margin-right: 5px;
+}
