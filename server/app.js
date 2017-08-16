@@ -6,6 +6,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const compression = require('compression')
+const cors = require('cors')
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
 
@@ -21,6 +22,7 @@ app.set('port', process.env.PORT || 3000)
 app.use(compression())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(cors())
 app.use(express.static(path.join(__dirname, '..', 'dist'), { maxAge: 31557600000 }))
 
 /*
